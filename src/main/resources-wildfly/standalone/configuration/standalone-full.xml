@@ -174,13 +174,13 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:/jdbc/uvms_movement" pool-name="jdbc/uvms_movement" enabled="true" use-ccm="true">
-                    <connection-url>jdbc:postgresql://livmdb71u:5432/db71u</connection-url>
+                    <connection-url>jdbc:postgresql://${DS_MOVEMENT_HOST}:${DS_MOVEMENT_PORT}/${DS_MOVEMENT_SID}</connection-url>
                     <driver-class>org.postgresql.Driver</driver-class>
                     <driver>postgresql</driver>
                     <transaction-isolation>TRANSACTION_REPEATABLE_READ</transaction-isolation>
                     <security>
-                        <user-name>movement</user-name>
-                        <password>movement</password>
+                        <user-name>${DS_MOVEMENT_USER}</user-name>
+                        <password>${DS_MOVEMENT_PWD}</password>
                     </security>
                 </datasource>
                 <drivers>

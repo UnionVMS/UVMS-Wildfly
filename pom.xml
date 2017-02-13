@@ -8,7 +8,7 @@
   </parent>
   
   <groupId>eu.europa.ec.fisheries.uvms.movement</groupId>
-  <artifactId>widlfly-remote</artifactId>
+  <artifactId>wildfly-remote</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
@@ -16,14 +16,33 @@
         
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <!-- DataSource HOST:PORT:SID-->
+    <DS_DEFAULT_HOST>livmdb71u</DS_DEFAULT_HOST>
+    <DS_DEFAULT_PORT>5432</DS_DEFAULT_PORT>
+    <DS_DEFAULT_SID>db71u</DS_DEFAULT_SID>
+    <DS_DEFAULT_USER>movement</DS_DEFAULT_USER>
+    <DS_DEFAULT_PWD>movement</DS_DEFAULT_PWD>
+    
+    <DS_MOVEMENT_HOST>${DS_DEFAULT_HOST}</DS_MOVEMENT_HOST>
+    <DS_MOVEMENT_PORT>${DS_DEFAULT_PORT}</DS_MOVEMENT_PORT>
+    <DS_MOVEMENT_SID>${DS_DEFAULT_SID}</DS_MOVEMENT_SID>
+    <DS_MOVEMENT_USER>${DS_DEFAULT_USER}</DS_MOVEMENT_USER>
+    <DS_MOVEMENT_PWD>${DS_DEFAULT_PWD}</DS_MOVEMENT_PWD>
+    
+    
     <!--Arquillian Properties-->
     <version.org.jboss.arquillian>1.1.5.Final</version.org.jboss.arquillian>
     <version.org.wildfly>8.2.0.Final</version.org.wildfly>
     <wildflydir>${project.build.directory}</wildflydir>
     <jbossHome>${wildflydir}/wildfly-${version.org.wildfly}</jbossHome>
+    
+    
+    
+    
   </properties>
   <scm>
-    <connection>scm:git:https://github.com/UnionVMS/TODO</connection>
+    <connection>scm:git:https://github.com/UnionVMS/UVMS-Wildfly</connection>
     <tag>HEAD</tag>
   </scm>
   <!-- Should  be removed and only used via Nexus-->
@@ -170,7 +189,7 @@
               <resources>
                 <resource>
                   <directory>src/main/resources-wildfly/</directory>
-                   <filtering>true</filtering>
+                  <filtering>true</filtering>
                 </resource>
               </resources>
               <overwrite>true</overwrite>
